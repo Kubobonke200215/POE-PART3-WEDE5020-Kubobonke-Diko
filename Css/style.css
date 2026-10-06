@@ -1,0 +1,881 @@
+/* :root represents the highest-level html element.
+   It stores reusable CSS variables for the whole Services page.
+   Students must replace these example colours with their actual colours. */
+:root {
+    --primary: #c4906e; /* Store the website's main colour. */
+    --primary-dark: #b7d1a5; /* Store a darker version for strong backgrounds. */
+    --accent: #110f0b; /* Store the highlight and hover colour. */
+    --background: #f4f7fa; /* Store the page background colour. */
+    --surface: #ffffff; /* Store the card background colour. */
+    --text: #242b3a; /* Store the normal text colour. */
+    --border: #d8e2ec; /* Store the card border colour. */
+}
+
+/* Select every HTML element. */
+* {
+    box-sizing: border-box; /* Include padding and borders inside element widths. */
+}
+
+/* Style the complete visible webpage. */
+body {
+    margin: 0; /* Remove the browser's default outside spacing. */
+    background-color: var(--background); /* Use the stored background colour. */
+    color: var(--text); /* Use the stored normal text colour. */
+    font-family: Arial, Helvetica, sans-serif; /* Set readable fallback fonts. */
+    font-size: 16px; /* Set the default text size. */
+    line-height: 1.6; /* Add readable space between lines. */
+}
+
+/* Create a reusable centred content area. */
+.container {
+    width: min(90%, 1200px); /* Use 90% width but never exceed 1200px. */
+    margin-inline: auto; /* Centre the container horizontally. */
+}
+
+/* Remove normal underlines and animate link colour changes. */
+a {
+    text-decoration: none; /* Remove the browser's default underline. */
+    transition: 0.25s ease; /* Smoothly animate interaction changes. */
+}
+
+/* Style the header across the top of the Services page. */
+.site-header {
+    background-color: var(--primary); /* Use the main website colour. */
+    border-bottom: 4px solid var(--accent); /* Add an accent line. */
+}
+
+/* Arrange the brand and navigation in one row. */
+.header-inner {
+    display: flex; /* Place children next to each other. */
+    align-items: center; /* Align children vertically. */
+    justify-content: space-between; /* Push them to opposite sides. */
+    min-height: 80px; /* Give the header a useful minimum height. */
+    gap: 2rem; /* Add space between the brand and navigation. */
+}
+
+/* Style the clickable organisation name. */
+.brand {
+    color: #ffffff; /* Display the brand in white. */
+    font-size: 1.25rem; /* Make it larger than normal text. */
+    font-weight: bold; /* Emphasise the organisation name. */
+}
+
+/* Arrange the main navigation links. */
+.site-nav {
+    display: flex; /* Place links in one row. */
+    gap: 0.35rem; /* Add a small gap between links. */
+}
+
+/* Style each link inside the main navigation. */
+.site-nav a {
+    padding: 0.7rem 0.9rem; /* Add clickable space inside each link. */
+    border-radius: 6px; /* Round the link corners. */
+    color: #ffffff; /* Display normal navigation text in white. */
+    font-weight: bold; /* Make navigation labels easy to identify. */
+}
+
+/* Apply when a mouse pointer is over a navigation link. */
+.site-nav a:hover {
+    background-color: var(--accent); /* Change to the accent background. */
+    color: var(--primary-dark); /* Use dark text for contrast. */
+    transform: translateY(-2px); /* Move the link slightly upward. */
+}
+
+/* Apply when a keyboard user selects a navigation link. */
+.site-nav a:focus-visible {
+    outline: 3px solid #ffffff; /* Draw a visible keyboard focus outline. */
+    outline-offset: 2px; /* Add space around the outline. */
+}
+
+/* Highlight the link for the page currently open. */
+.site-nav a[aria-current="page"] {
+    background-color: #ffffff; /* Use a white active-link background. */
+    color: var(--primary); /* Use the main colour for active-link text. */
+}
+
+/* Style the short introduction at the top of the page. */
+.page-header {
+    padding: 4rem 0; /* Add vertical space inside the section. */
+    background-color: var(--primary-dark); /* Use the dark website colour. */
+    color: #ffffff; /* Make inherited text white. */
+    text-align: center; /* Centre the introduction. */
+}
+
+/* Style the small line above the main heading. */
+.eyebrow {
+    margin-bottom: 0.5rem; /* Add space below the line. */
+    color: var(--accent); /* Use the accent colour. */
+    font-weight: bold; /* Emphasise the text. */
+    text-transform: uppercase; /* Display the text in capital letters. */
+}
+
+
+.page-header h1 {
+    margin: 0 0 1rem; 
+    font-size: clamp(2rem, 5vw, 3.25rem); 
+}
+
+
+.page-introduction {
+    max-width: 700px; 
+    margin: 0 auto; 
+}
+
+
+.services-section {
+    padding: 4rem 0;
+}
+
+
+.section-heading {
+    margin: 0 0 2rem; 
+    color: var(--primary); 
+    text-align: center; 
+}
+
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 1.5rem;
+}
+
+
+.service-card {
+    overflow: hidden; 
+    background-color: var(--surface);
+    border: 1px solid var(--border); 
+    border-radius: 10px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12); 
+    transition: transform 0.25s ease; 
+}
+
+
+.service-card:hover {
+    transform: translateY(-5px); 
+}
+
+
+.service-image {
+    display: block; 
+    width: 100%; 
+    height: 180px; 
+    object-fit: cover; 
+}
+
+
+.service-content {
+    padding: 1.25rem; 
+}
+
+
+.service-content h3 {
+    margin: 0 0 0.5rem; 
+    color: var(--primary); 
+}
+
+
+.service-content p {
+    margin-bottom: 0; 
+}
+
+
+.site-footer {
+    padding: 2rem 0; 
+    background-color: var(--primary-dark); 
+    color: #ffffff; 
+    text-align: center; 
+}
+
+
+.site-footer p {
+    margin: 0; 
+}
+
+
+@media (max-width: 900px) {
+    
+    .header-inner {
+        flex-direction: column;
+        padding: 1rem 0; 
+    }
+
+   
+    .site-nav {
+        justify-content: center; 
+        flex-wrap: wrap; 
+    }
+
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+
+@media (max-width: 600px) {
+    
+    .site-nav {
+        width: 100%; 
+        flex-direction: column; 
+    }
+
+    
+    .site-nav a {
+        width: 100%; 
+        text-align: center; 
+    }
+
+   
+    .services-grid {
+        grid-template-columns: 1fr; 
+    }
+}
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #c4906e;
+}
+
+
+.header-navigation {
+  background-color: #c4906e;
+  border-bottom: 1px solid #c4906e;
+  padding: 15px 40px;
+  width: 100%;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-logo-img {
+  height: 65px; 
+  width: auto;
+  display: block;
+}
+
+
+.nav-menu-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+
+.top-utility-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.top-utility-nav a {
+  color: #1a4f78; 
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.top-utility-nav a:hover {
+  color: #0c2d48;
+  text-decoration: underline;
+}
+
+.top-utility-nav .divider {
+  color: #b0b0b0;
+  font-size: 0.85rem;
+}
+
+
+.main-dropdown-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.main-dropdown-nav .nav-link {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.main-dropdown-nav .nav-link:hover {
+  color: #1a4f78;
+}
+
+
+.arrow-icon {
+  font-size: 0.75rem;
+  color: #1a4f78;
+}
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f6f4;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+
+.site-header {
+  background-color: #c4906e;
+  color: #ffffff;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  border-bottom: 4px solid #c4906e;
+}
+
+.brand-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.brand-tagline {
+  font-size: 1rem;
+  color: #c8e6c9;
+  margin-top: 0.25rem;
+}
+
+
+.main-content {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.container-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .container-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+.tel-heading {
+  font-size: 1.6rem;
+  color: #c4906e;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: #c4906e;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: 0.95rem;
+  color: #555555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.phone-link {
+  display: inline-block;
+  color: #c4906e;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.phone-link:hover {
+  text-decoration: underline;
+  color: #c4906e;
+}
+
+
+.col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-cards-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 480px) {
+  .info-cards-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.info-card {
+  background: #ffffff;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid #c4906e;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.info-card hr {
+  border: 0;
+  height: 1px;
+  background: #e0e0e0;
+  margin: 1rem 0;
+}
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.hours-table td {
+  padding: 0.35rem 0;
+}
+
+
+.address-section {
+  background: #ffffff;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid #c4906e;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.address-text {
+  margin-bottom: 1rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.map-box iframe {
+  border-radius: 6px;
+  display: block;
+}
+
+
+.form-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  border-top: 4px solid #c4906e;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.form-subtitle {
+  font-size: 0.9rem;
+  color: #666666;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #333333;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #c4906e;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+
+.btn-submit-form {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: #c4906e;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-submit-form:hover {
+  background-color: #c4906e;
+}
+
+.btn-submit-form:active {
+  transform: scale(0.99);
+}
+
+
+
+.form-submit-container {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.submit-btn {
+    background-color: #0b4f4c; 
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 30px;
+    border: 2px solid #063836; 
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #063836; 
+    border-color: #021a19;     
+}
+
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: #1a1a1a; 
+    color: #ffffff;            
+    border-radius: 50%;        
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #0b4f4c; 
+}
+
+
+.site-footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background-color: #e8f5e9;
+  color: #c4906e;
+  font-size: 0.85rem;
+  margin-top: 3rem;
+  border-top: 1px solid #c8e6c9;
+}
+
+
+
+
+
+.site-footer {
+  background-color: #ececec; 
+  color: #000000;            
+  padding: 30px 40px 40px;
+  position: relative;
+}
+
+
+.footer-social-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.social-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #030101;
+}
+
+.social-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+
+.footer-body {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.about-text {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.footer-badge {
+  width: 180px;
+  height: auto;
+  border-radius: 4px;
+}
+
+
+.col-contact {
+  gap: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #000000;
+  font-size: 0.95rem;
+}
+
+.contact-icon {
+  font-size: 1.8rem;
+  color: #9e9362; 
+  min-width: 30px;
+  text-align: center;
+}
+
+.complaint-btn-container {
+  margin-top: 15px;
+  text-align: center;
+}
+
+
+.col-actions {
+  align-items: center;
+  text-align: center;
+  gap: 25px;
+}
+
+
+.btn-dark-red {
+  display: inline-block;
+  background-color: #c4906e;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.85rem;
+  padding: 10px 24px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-dark-red:hover {
+  background-color: #5c1010;
+}
+
+.btn-contact {
+  padding: 12px 35px;
+}
+
+
+.browser-info {
+  color: #000000;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 320px;
+}
+
+.browser-info p {
+  font-weight: bold;
+}
+
+.browser-list {
+  margin-top: 8px;
+}
+
+
+.chat-widget {
+  position: fixed;
+  bottom: 0;
+  right: 30px;
+  z-index: 9999;
+}
+
+.chat-button {
+  background-color: #c4906e;
+  color: #ffffff;
+  border: none;
+  padding: 10px 25px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.chat-button:hover {
+  background-color: #c4906e;
+}
+
+
+@media (max-width: 900px) {
+  .footer-body {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+  }
+
+  .col-actions {
+    margin-top: 10px;
+  }
+}
+
+body {
+background-color: #f7f4ea;
+color: #064e3b;
+font-family: Arial, sans-serif;
+text-align: center;
+margin: 0;
+padding: 20px;
+}
+
+h1 {
+color: #064e3b;
+margin-bottom: 25px;
+}
+
+h2 {
+color: #064e3b;
+margin-top: 25px;
+}
+
+h3 {
+color: #064e3b;
+margin-top: 25px;
+}
+
+p {
+color: #333;
+max-width: 800px;
+margin: 15px auto;
+font-size: 17px;
+}
+
+img {
+width: 80%;
+max-width: 700px;
+display: block;
+margin: 20px auto;
+border-radius: 10px;
+}
+
+a {
+display: inline-block;
+background-color: #c4906e;
+color: white;
+padding: 12px 20px;
+text-decoration: none;
+border-radius: 5px;
+margin: 15px;
+}
+
+a:hover {
+background-color: #064e3b;
+}
+

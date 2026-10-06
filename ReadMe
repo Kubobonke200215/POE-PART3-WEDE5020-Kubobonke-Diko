@@ -1,0 +1,288 @@
+# Siyakhana Legal Advice Centre Website
+
+An HTML5-only, five-page website created from the Siyakhana Legal Advice Centre Website proposal. It presents the business, promotes its Legal advice services and gives customers ways to submit inquiries, quotation requests and booking requests.
+
+## Pages
+
+- `index.html` — Home page and service overview
+- `about.html` — Business history, mission, vision, values and target audience
+- `service.html` — Free legal support, human rights education, administrative assistance with social grants, and food security initiatives.
+- `inquiry.html` — Inquiry, quotation and booking request form
+- `contact.html` — Contact information, hours and contact form
+
+
+## Organisation Overview
+
+Siyakhana Legal Advice Centre was founded in **2024 in Mount Frere (KwaBhaca)**. The organisation works at community level to address challenges such as limited access to justice, social grant difficulties, and human rights violations. The organisation focuses on offering free legal advice, protecting human rights, and helping rural communities access social services.
+
+## Services
+
+The website highlights the following services and programmes:
+- Providing free paralegal and legal advice services.
+- Assisting residents with SASSA social grant applications and appeals.
+- Resolving local land, family, and labour disputes.
+- Educating rural communities on human rights and constitutional protections.
+- Supporting women and vulnerable groups affected by gender-based violence.
+- Promoting social justice and community empowerment across the Alfred Nzo District.
+
+## Contact Information
+
+**Telephone:** 041 818 5643
+**WhatsApp:**  0789184768 
+**Facebook:** Siyakhana Legal Advice Centre  
+**Physical Address:**  ERF 173 Main Street, KwaBhaca, 5090</p>
+**Opening Hours:**  - Monday-Friday: 08:00-16:30
+                    -Saturdays: 09:00-13:00
+                    -Sundays: Closed
+
+## Folder Structure
+## Folder structure
+
+```text
+`Siyakhana Legal Advice Centre/
+├── index.html
+├── about.html
+├── service.html
+├── inquiry.html
+├── contact.html
+├── README.md
+├── CHANGELOG.md
+└── images/
+    ├── Community.jpg
+    ├── Donor funding.jpg
+    ├── images.jpg
+    ├── Legal Aid.jpg
+    └── legal-advice-concept-color-illustration-vector.jpg
+```
+
+*The image filenames above can be changed to match the actual filenames used in the project.*
+
+## How to Run
+
+1. Download or extract the website folder.
+2. Open the project folder.
+3. Double-click `index.html`.
+4. The website will open in a web browser.
+5. Use the navigation links to move between the Home, About, Services, Enquiry and Contact pages.
+
+*No server or installation is required to view the basic website locally.*
+
+## Enquiry Form
+
+The enquiry page allows visitors to provide:
+- Full name
+- Email address
+- Phone/WhatsApp number
+- Location
+- Enquiry category
+- Preferred availability
+- Specific request or enquiry details
+
+*The form is designed to allow visitors to communicate their interest in the organisation and request further assistance or information.*
+
+## Contact Page
+
+The Contact page provides visitors with the organisation telephone and WhatsApp numbers, Facebook information, physical address and opening hours. It also includes a map showing the organisation location and a form for visitors to submit their contact details.
+
+## Technologies Used
+
+- HTML5
+- HTML forms
+- Google Maps embed
+- Local image resources
+- Web browser for viewing the website
+
+## Website Features
+
+- Multi-page navigation
+- Organisation information
+- Mission and vision statements
+- Educational and legal service information
+- Human rights and social service access information
+- Contact details
+- Embedded location map
+- Enquiry form
+- Contact form
+- Responsive images
+
+## Future Improvements
+
+Possible future improvements include:
+- Adding CSS styling for a more modern interface.
+- Adding JavaScript for improved form validation and interactivity.
+- Connecting the enquiry and contact forms to a database or secure server-side form handler.
+- Adding a responsive mobile navigation menu.
+- Improving accessibility features.
+- Adding social media links and organisation branding.
+- Hosting the website online with an official domain.
+
+## Project Purpose
+
+The purpose of the website is to provide an accessible online presence for **Mount Frere Paralegal Advice Centre**, allowing community members, legal aid seekers, donors, and other interested visitors to learn about its programmes, legal initiatives, and opportunities for community support.
+
+## Copyright
+
+© 2026 Siyakhana Legal Advice Centre. All rights reserved.
+
+## GitHub 
+https://github.com/dikokubobonkeolwethu-gif/Assignment-1-Part-1
+
+## Netlify/
+https://gregarious-mermaid-2c2869.netlify.app 
+
+
+
+
+
+
+
+# Siyakhana Legal Advice Centre Website
+
+A static multi-page website for **Siyakhana Legal Advice Centre**, a community-based organisation providing free legal advice, human rights support, and social assistance to rural residents in the Alfred Nzo District (Mount Frere, Eastern Cape, South Africa).
+
+---
+
+## Project Overview
+
+Siyakhana Legal Advice Centre was founded in 2024 by local activists and retired legal practitioners. The centre helps vulnerable community members (including the elderly, women, children, people with disabilities, and the rural poor) with:
+
+- Free legal advice and consultation
+- SASSA grant applications and social services support
+- Community dispute resolution
+- Human rights awareness and education
+- Partnerships with traditional leaders and local government
+
+This website serves as the organisation’s online presence for information, enquiries, and contact.
+
+---
+
+## Pages Included
+
+| Page              | File                          | Description                                      |
+|-------------------|-------------------------------|--------------------------------------------------|
+| Home              | `index.html`                  | Welcome page with organisation introduction      |
+| About             | `Pages/about.html`            | History, Mission & Vision                        |
+| Services          | `Pages/services.html`         | Overview of services offered                     |
+| Enquiry           | `Pages/enquiry.html`          | Enquiry / consultation booking form              |
+| Contact Us        | `Pages/contactus.html`        | Contact details, map, and contact form           |
+
+---
+
+## Folder Structure
+
+```
+Siyakhana-Legal-Advice-Centre/
+│
+├── index.html                 # Homepage
+├── README.md                  # This file
+│
+├── Pages/
+│   ├── about.html
+│   ├── services.html
+│   ├── enquiry.html
+│   └── contactus.html
+│
+├── Css/
+│   └── style.css              # Main stylesheet
+│
+├── Images/
+│   ├── Organization logo.png
+│   ├── legal-advice-concept-color-illustration-vector.jpg
+│   ├── Home page picture.jpg
+│   ├── Legal Aid.jpg
+│   ├── Community.jpg
+│   └── Donor funding.jpg
+│
+└── _shared.css                # Shared styles (if used)
+```
+
+> **Note:** Some pages currently reference both `../_shared.css` and `../Css/style.css`. You may consolidate styles later.
+
+---
+
+## Technologies Used
+
+- **HTML5** – Structure of all pages
+- **CSS3** – Styling (including CSS variables, Flexbox, Grid, and responsive media queries)
+- **Font Awesome 6** – Social media and contact icons (loaded via CDN)
+- **Google Maps Embed** – Location map on the Contact page
+- No JavaScript framework (vanilla HTML/CSS only)
+
+---
+
+## How to Run the Website Locally
+
+1. Download or clone the project folder.
+2. Open the folder in any code editor (VS Code, Sublime, etc.).
+3. Open `index.html` in a modern web browser (Chrome, Firefox, Edge, or Safari).
+
+Alternatively, you can use a simple local server:
+
+```bash
+# Using Python
+python -m http.server 8000
+
+# Then open: http://localhost:8000
+```
+
+---
+
+## Current Features
+
+- Responsive header and navigation
+- Service cards with images
+- Enquiry form (personal details + consultation booking)
+- Contact form with location and enquiry type
+- Google Maps embed for physical address
+- Footer with contact details, social icons, and “Lodge a Complaint” / “Contact Us” buttons
+- Fixed chat widget button (bottom-right)
+- Mobile-friendly layout using media queries
+
+---
+
+## Known Issues / Areas for Improvement
+
+The current code has several structural problems that should be fixed for a production-ready site:
+
+1. **Duplicated HTML** – Many pages contain multiple `<!DOCTYPE html>`, `<html>`, and `<body>` tags because the footer was pasted incorrectly.
+2. **Broken / nested tags** – Header brand links and some closing tags are incomplete.
+3. **Inconsistent paths** – Some image and CSS links use different relative paths.
+4. **Placeholder social links** – Facebook, Twitter, Instagram, LinkedIn and YouTube links still use example URLs.
+5. **Forms do not submit** – Enquiry and Contact forms currently have no backend (they use `action="#"`).
+6. **Missing `_shared.css`** – Some pages reference it; ensure the file exists or remove the link.
+7. **Typography & colour inconsistencies** – Multiple style blocks override each other in the CSS file.
+
+---
+
+## Recommended Next Steps
+
+1. Clean up each HTML page (remove duplicate document structures).
+2. Create one clean shared footer and include it on every page.
+3. Consolidate all CSS into a single well-organised `style.css`.
+4. Add real social media profile URLs.
+5. Connect the forms to a backend service (e.g. Formspree, Netlify Forms, or your own server).
+6. Optimise images and add proper `alt` text.
+7. Add a simple JavaScript file for the chat button if interactive behaviour is needed.
+
+---
+
+## Contact Information (from the website)
+
+- **Toll-free / Helpline:** 0800 110 110 (Mon–Fri 09:00–17:00)
+- **Direct Line:** 041 818 5643
+- **Email:** info@siyakhanalegal.co.za
+- **Fraud & Ethics Hotline:** 0800 153 728
+- **Physical Address:** Siyakhana Head Office, Mount Frere, Eastern Cape, South Africa
+- **Postal Address:** P.O. Box 543, Mount Frere, Eastern Cape, 2000, South Africa
+
+---
+
+## Licence
+
+This project is created for educational / organisational use by Siyakhana Legal Advice Centre.  
+All rights reserved © 2026 Siyakhana Legal Advice Centre.
+
+---
+
+**Created for:** Siyakhana Legal Advice Centre – Mount Frere, Alfred Nzo District  
+**Year:** 2026
