@@ -6,6 +6,9 @@
     <title>contact us page</title>
     <link rel="stylesheet" href="../_shared.css">
     <link rel="stylesheet" href="../Css/style.css">
+    
+    <script src="../javascript/main.js" defer></script>
+    <script src="../javascript/validation.js" defer ></script>
 </head>
 <body>
      <header class="site-header">
@@ -105,17 +108,31 @@
           <p class="form-subtitle">Have questions or want to partner with Siyakhana? Send us a message.</p>
           
           <form action="#" method="post">
+            <form id = "contactform" class="contact-form" novalidate>
+
             <div class="form-group">
               <input type="text" placeholder="Full name" name="fullname" required />
+             <span class="error-message" id="nameError">
+                Full Name is required (minimum 3 characters).
+              </span>  
             </div>
             <div class="form-group">
               <input type="tel" placeholder="Contact Number (+27...)" name="phone" required />
+              <span class="error-message" id="contactnumberError">
+                Contact Number is required.
+              </span>
             </div>
             <div class="form-group">
               <input type="email" placeholder="Email Address" name="email" required />
+              <span class="error-message" id="emailError">
+               Please enter a valid email address.
+              </span>
             </div>
             <div class="form-group">
               <input type="text" placeholder="I am looking to support / buy..." name="intent" />
+              <span class="error-message" id="nameError">
+                Information required.
+              </span>
             </div>
             <div class="form-group">
               <select name="location" required>
