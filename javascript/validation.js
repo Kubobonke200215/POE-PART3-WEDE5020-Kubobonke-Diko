@@ -1,8 +1,8 @@
 /**
- * validation.js - Form validation for contact and enquiry forms.
+ * validation.js - Form validation with inline red error messages for contact and enquiry forms.
  */
 document.addEventListener('DOMContentLoaded', () => {
-    // Contact Form Validation
+    // 1. Contact Form Validation
     const contactForm = document.getElementById('contactform') || document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
@@ -14,37 +14,45 @@ document.addEventListener('DOMContentLoaded', () => {
             const comment = contactForm.querySelector('textarea[name="comment"]');
 
             // Validate Full Name
-            if (fullname && fullname.value.trim().length < 3) {
-                isValid = false;
-                showError(fullname, 'Full name must be at least 3 characters.');
-            } else if (fullname) {
-                clearError(fullname);
+            if (fullname) {
+                if (fullname.value.trim().length < 3) {
+                    isValid = false;
+                    showError(fullname, 'Full name must be at least 3 characters.');
+                } else {
+                    clearError(fullname);
+                }
             }
 
             // Validate Phone Number (South African format support)
             const phoneRegex = /^(\+27|0)[0-9]{9}$/;
-            if (phone && !phoneRegex.test(phone.value.trim().replace(/\s+/g, ''))) {
-                isValid = false;
-                showError(phone, 'Please enter a valid phone number (e.g., 0418185643 or +27...).');
-            } else if (phone) {
-                clearError(phone);
+            if (phone) {
+                if (!phoneRegex.test(phone.value.trim().replace(/\s+/g, ''))) {
+                    isValid = false;
+                    showError(phone, 'Please enter a valid phone number (e.g., 0418185643 or +27...).');
+                } else {
+                    clearError(phone);
+                }
             }
 
             // Validate Email Address
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (email && !emailRegex.test(email.value.trim())) {
-                isValid = false;
-                showError(email, 'Please enter a valid email address.');
-            } else if (email) {
-                clearError(email);
+            if (email) {
+                if (!emailRegex.test(email.value.trim())) {
+                    isValid = false;
+                    showError(email, 'Please enter a valid email address.');
+                } else {
+                    clearError(email);
+                }
             }
 
             // Validate Message/Comment
-            if (comment && comment.value.trim() === '') {
-                isValid = false;
-                showError(comment, 'Message cannot be empty.');
-            } else if (comment) {
-                clearError(comment);
+            if (comment) {
+                if (comment.value.trim() === '') {
+                    isValid = false;
+                    showError(comment, 'Message cannot be empty.');
+                } else {
+                    clearError(comment);
+                }
             }
 
             if (!isValid) {
@@ -57,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Enquiry Form Validation (Enquiry.html)
+    // 2. Enquiry Form Validation (Enquiry.html) - Inline Red Errors
     const enquirySubmitBtn = document.querySelector('.submit-btn');
     if (enquirySubmitBtn) {
         enquirySubmitBtn.addEventListener('click', (e) => {
@@ -67,32 +75,50 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = document.getElementById('message');
 
             let isValid = true;
-            let errorMsg = [];
 
-            if (fullname && fullname.value.trim().length < 3) {
-                isValid = false;
-                errorMsg.push('Full Name is required and must be at least 3 characters.');
+            // Validate Full Name
+            if (fullname) {
+                if (fullname.value.trim().length < 3) {
+                    isValid = false;
+                    showError(fullname, 'Full Name is required and must be at least 3 characters.');
+                } else {
+                    clearError(fullname);
+                }
             }
 
+            // Validate Email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (email && !emailRegex.test(email.value.trim())) {
-                isValid = false;
-                errorMsg.push('A valid Email Address is required.');
+            if (email) {
+                if (!emailRegex.test(email.value.trim())) {
+                    isValid = false;
+                    showError(email, 'A valid Email Address is required.');
+                } else {
+                    clearError(email);
+                }
             }
 
-            if (category && category.value === '') {
-                isValid = false;
-                errorMsg.push('Please select an Enquiry Category.');
+            // Validate Category
+            if (category) {
+                if (category.value === '') {
+                    isValid = false;
+                    showError(category, 'Please select an Enquiry Category.');
+                } else {
+                    clearError(category);
+                }
             }
 
-            if (message && message.value.trim() === '') {
-                isValid = false;
-                errorMsg.push('Please provide a specific request message.');
+            // Validate Message
+            if (message) {
+                if (message.value.trim() === '') {
+                    isValid = false;
+                    showError(message, 'Please provide a specific request message.');
+                } else {
+                    clearError(message);
+                }
             }
 
             if (!isValid) {
-                e.preventDefault();
-                alert('Please correct the following errors:\n\n- ' + errorMsg.join('\n- '));
+                e.preventDefault(); // Prevents submission and displays red inline text instead of an alert
             } else {
                 e.preventDefault();
                 alert('Enquiry submitted successfully! Siyakhana Legal will get back to you soon.');
@@ -100,21 +126,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Helper function to display bright red error text below fields
     function showError(inputElement, message) {
         inputElement.style.borderColor = '#d9534f';
         let errorSpan = inputElement.nextElementSibling;
+        
         if (!errorSpan || !errorSpan.classList.contains('error-message')) {
             errorSpan = document.createElement('span');
             errorSpan.className = 'error-message';
-            errorSpan.style.color = '#d9534f';
-            errorSpan.style.fontSize = '0.85rem';
-            errorSpan.style.marginTop = '4px';
-            errorSpan.style.display = 'block';
-            inputElement.parentNode.appendChild(errorSpan);
+            inputElement.parentNode.insertBefore(errorSpan, inputElement.nextSibling);
         }
+        
+        errorSpan.style.color = '#d9534f'; // Bright red error color
+        errorSpan.style.fontSize = '0.85rem';
+        errorSpan.style.marginTop = '4px';
+        errorSpan.style.display = 'block';
         errorSpan.textContent = message;
     }
 
+    // Helper function to clear error state when valid
     function clearError(inputElement) {
         inputElement.style.borderColor = '#ccc';
         const errorSpan = inputElement.nextElementSibling;
