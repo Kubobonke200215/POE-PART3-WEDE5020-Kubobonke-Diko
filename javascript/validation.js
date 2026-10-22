@@ -153,3 +153,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const contactForm = document.getElementById('contactform');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission / page reload
+
+            // Optional: Run your custom validation checks here if needed
+
+            // Send the form using EmailJS
+            // Parameters: Service ID, Template ID, and the form element itself
+            emailjs.sendForm('service_oylm7v1', 'template_buyce9u', this)
+                .then(function () {
+                    alert('Your message has been successfully sent to Siyakhana Legal!');
+                    contactForm.reset(); // Reset form fields after successful send
+                }, function (error) {
+                    console.error('FAILED...', error);
+                    alert('Failed to send message. Please try again later or call us directly.');
+                });
+        });
+    }
+});

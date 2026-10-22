@@ -3,193 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EnquiryPage</title>
+    <title>Enquiry - Siyakhana Legal Advice Centre</title>
+    
+    <!-- Shared and Custom Stylesheets -->
     <link rel="stylesheet" href="../_shared.css">
     <link rel="stylesheet" href="../Css/style.css">
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init({
+                publicKey: "K9-aje22YN6cky6qL", // Your EmailJS Public Key
+            });
+        })();
+    </script>
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- JavaScript Files -->
     <script src="../javascript/lightbox.js" defer></script>
     <script src="../javascript/main.js" defer></script>
     <script src="../javascript/search.js" defer></script>
     <script src="../javascript/validation.js" defer></script>
 </head>
 <body>
-     <header class="site-header">
+    <header class="site-header">
         <div class="container header-inner">
-            <a href="/" class="header-brand">
+            <a href="../index.html" class="header-brand">
                 <img src="../Images/Organization logo.png" alt="Siyakhana Legal Advice Centre Logo" class="brand-logo-img">
-            <a class="brand" href="index.html">Siyakhana Legal Advice Centre</a>
+            </a>
+            <a class="brand" href="../index.html">Siyakhana Legal Advice Centre</a>
             <nav class="site-nav" aria-label="Main navigation">
                 <a href="../index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="services.html" aria-current="page">Services</a>
-                <a href="enquiry.html">Enquiry</a>
+                <a href="services.html">Services</a>
+                <a href="enquiry.html" aria-current="page">Enquiry</a>
                 <a href="contactus.html">Contact Us</a>
             </nav>
         </div>
     </header>
 
-    
-   
-<fieldset>
-<legend><strong>Your Personal Information</strong></legend>
-<br>
-                   
-<label for="fullname">Full Name:</label><br>
-<input type="text" id="fullname" name="fullname" placeholder="e.g. Kubobonke Diko" required><br><br>
-<label for="email">Email Address:</label><br>
-<input type="email" id="email" name="email" placeholder="e.g. kubobonkediko@example.com" required><br><br>
+    <main class="main-content container">
+        <h2>Enquiry & Consultation Booking</h2>
+        <p>Please fill out the form below to submit your enquiry or book a consultation.</p>
 
-<label for="phone">Phone / WhatsApp Number:</label><br>
-<input type="tel" id="phone" name="phone" placeholder="e.g. 072 763 3457"><br><br>
+        <!-- Enquiry Form with Unique ID matching reference -->
+        <form id="enquiryForm" class="enquiry-form" novalidate>
+            
+            <fieldset>
+                <legend><strong>Your Personal Information</strong></legend>
+                <br>
+                <label for="fullname">Full Name:</label><br>
+                <input type="text" id="fullname" name="fullname" placeholder="e.g. Kubobonke Diko" required>
+                <span class="error-message" id="nameError"></span><br><br>
+                
+                <label for="email">Email Address:</label><br>
+                <input type="email" id="email" name="email" placeholder="e.g. kubobonkediko@example.com" required>
+                <span class="error-message" id="emailError"></span><br><br>
 
-<label for="location">Suburban Area in Mount Frere:</label><br>
-<input type="text" id="location" name="location" placeholder="e.g. Siyakhana legal advice centre, Mount Frere"><br><br>
-</fieldset>
+                <label for="phone">Phone / WhatsApp Number:</label><br>
+                <input type="tel" id="phone" name="phone" placeholder="e.g. 072 763 3457">
+                <span class="error-message" id="contactnumberError"></span><br><br>
 
-<br>
+                <label for="location">Suburban Area in Mount Frere:</label><br>
+                <input type="text" id="location" name="location" placeholder="e.g. Siyakhana legal advice centre, Mount Frere"><br><br>
+            </fieldset>
 
-<!-- Enquiry Category Fieldset -->
-<fieldset>
-<legend><strong>Enquiry & Consultation booking</strong></legend>
-<br>
+            <br>
 
-<label for="category">Enquiry Category:</label><br>
-<select id="category" name="category" required>
-<option value="" disabled selected>-- Select an Enquiry Type --</option>
-<option value="booking">One on One consultation services</option>
-<option value="Service Quotation ">Services Quotation fee</option>
-<option value="general">General Enquiry</option>
-</select><br><br>
+            <!-- Enquiry Category Fieldset -->
+            <fieldset>
+                <legend><strong>Enquiry & Consultation booking</strong></legend>
+                <br>
 
-<label>Preferred Availability for :</label><br>
-<input type="checkbox" id="avail_Wednesday" name="availability[]" value="Wednesday">
-<label for="avail_Wednesday">Wednesday </label><br>
-                   
-<input type="checkbox" id="avail_weekdays" name="availability[]" value="Weekdays">
-<label for="avail_weekdays">Weekdays</label><br><br>
+                <label for="category">Enquiry Category:</label><br>
+                <select id="category" name="category" required>
+                    <option value="" disabled selected>-- Select an Enquiry Type --</option>
+                    <option value="One on One consultation services">One on One consultation services</option>
+                    <option value="Services Quotation fee">Services Quotation fee</option>
+                    <option value="General Enquiry">General Enquiry</option>
+                </select>
+                <span class="error-message" id="categoryError"></span><br><br>
 
-<label for="message"> Specific Request:</label><br>
-<textarea id="message" name="message" rows="6" cols="50" placeholder="Please tell us more about your enquiry or how you'd like to get involved..." required></textarea><br><br>
-</fieldset>
+                <label>Preferred Availability:</label><br>
+                <input type="checkbox" id="avail_Wednesday" name="availability" value="Wednesday">
+                <label for="avail_Wednesday">Wednesday</label><br>
+                                 
+                <input type="checkbox" id="avail_weekdays" name="availability" value="Weekdays">
+                <label for="avail_weekdays">Weekdays</label><br><br>
 
-<br>
+                <label for="message">Specific Request:</label><br>
+                <textarea id="message" name="message" rows="6" cols="50" placeholder="Please tell us more about your enquiry or how you'd like to get involved..." required></textarea>
+                <span class="error-message" id="commentError"></span><br><br>
+            </fieldset>
 
-<div class="form-submit-container">
-    <button type="submit" class="submit-btn">Submit Enquiry</button>
-</div>
+            <br>
 
+            <div class="form-submit-container">
+                <button type="submit" class="submit-btn btn-submit-form">Submit Enquiry</button>
+            </div>
 
-<footer>
+        </form>
+    </main>
 
-
+    <!-- Footer Section -->
     <footer class="site-footer">
-    
-    
-    <div class="footer-social-header">
-      <span class="social-title">Follow us on</span>
-      
-<div class="social-icons">
-    
-    <a href="https://www.facebook.com/your-profile-name" target="_blank" rel="noopener noreferrer" class="social-icon">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-    
-    
-    <a href="https://twitter.com/your-profile-name" target="_blank" rel="noopener noreferrer" class="social-icon">
-        <i class="fab fa-twitter"></i>
-    </a>
-    
-    
-    <a href="https://www.instagram.com/your-profile-name" target="_blank" rel="noopener noreferrer" class="social-icon">
-        <i class="fab fa-instagram"></i>
-    </a>
-    
-    
-    <a href="https://www.linkedin.com/in/your-profile-name" target="_blank" rel="noopener noreferrer" class="social-icon">
-        <i class="fab fa-linkedin-in"></i>
-    </a>
-    
-   
-    <a href="https://www.youtube.com/your-channel-name" target="_blank" rel="noopener noreferrer" class="social-icon">
-        <i class="fab fa-youtube"></i>
-    </a>
-</div>
-    </body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Siyakhana Legal Advice Centre</title>
-  
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    
-    <div class="footer-body">
-      
-      
-      <div class="footer-col col-about">
-        <p class="about-text">
-          Siyakhana Legal Advice Centre provides professional legal advice and representation to those who cannot afford it. We try to help as many people as possible, including vulnerable groups such as women, children, the elderly, disabled, and the rural poor.
-        </p>
-        <div class="badge-wrapper">
-         
-          <img src="../Images/Organization logo.png" alt="Siyakhana Legal Advice Centre Logo" class="footer-badge">
-        </div>
-      </div>
-
-      
-      <div class="footer-col col-contact">
-        <div class="contact-item">
-          <i class="fas fa-phone-alt contact-icon"></i>
-          <span><strong>0800 110 110</strong> (Monday to Friday 9AM - 5PM)</span>
+        <div class="footer-social-header">
+            <span class="social-title">Follow us on</span>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/your-profile-name" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/your-profile-name" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/your-profile-name" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/your-profile-name" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/your-channel-name" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
         
-        <div class="contact-item">
-          <i class="fas fa-mobile-alt contact-icon"></i>
-          <span>041 818 5643<strong></strong> (Please Call Us)</span>
-        </div>
-        
-        <div class="contact-item">
-          <i class="fas fa-envelope contact-icon"></i>
-          <span>info@siyakhanalegal.co.za</span>
-        </div>
-        
-        <div class="contact-item">
-          <i class="fas fa-phone-volume contact-icon"></i>
-          <span>Fraud and Ethics Hotline <strong>0800 153 728</strong></span>
+        <div class="footer-body">
+            <div class="footer-col col-about">
+                <p class="about-text">
+                    Siyakhana Legal Advice Centre provides professional legal advice and representation to those who cannot afford it. We try to help as many people as possible, including vulnerable groups such as women, children, the elderly, disabled, and the rural poor.
+                </p>
+                <div class="badge-wrapper">
+                    <img src="../Images/Organization logo.png" alt="Siyakhana Legal Advice Centre Logo" class="footer-badge">
+                </div>
+            </div>
+
+            <div class="footer-col col-contact">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt contact-icon"></i>
+                    <span><strong>0800 110 110</strong> (Monday to Friday 9AM - 5PM)</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-mobile-alt contact-icon"></i>
+                    <span>041 818 5643 (Please Call Us)</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <span>info@siyakhanalegal.co.za</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone-volume contact-icon"></i>
+                    <span>Fraud and Ethics Hotline <strong>0800 153 728</strong></span>
+                </div>
+
+                <div class="complaint-btn-container">
+                    <a href="complaints.html" class="btn-dark-red">LODGE A COMPLAINT</a>
+                </div>
+            </div>
+
+            <div class="footer-col col-actions">
+                <a href="contactus.html" class="btn-dark-red btn-contact">CONTACT US</a>
+                <div class="browser-info">
+                    <p>This website is best viewed with the following web browsers:</p>
+                    <p class="browser-list">
+                        Google Chrome, Mozilla Firefox, Microsoft Edge, Safari. Support for Internet Explorer is deprecated.
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <div class="complaint-btn-container">
-          <a href="/complaints" class="btn-dark-red">LODGE A COMPLAINT</a>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Siyakhana Legal Advice Centre. All rights Reserved.</p>
         </div>
-      </div>
+    </footer>
 
-   <div class="footer-col col-actions">
-        <a href="/contact" class="btn-dark-red btn-contact">CONTACT US</a>
-        
-        <div class="browser-info">
-          <p>This website is best viewed with the following web browsers:</p>
-          <p class="browser-list">
-            Google Chrome, Mozilla Firefox, Microsoft Edge, Safari. Support for Internet Explorer is deprecated.
-          </p>
-        </div>
-      </div>
-<footer class="site-footer">
-  <div class="footer-bottom">
-    <p>&copy; 2026 Siyakhana Legal Advice Centre. All rights Reserved.</p>
-  </div>
-</footer>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const enquiryForm = document.getElementById("enquiryForm");
 
-    <div class="chat-widget">
-      <button class="chat-button">
-        Chat with Siyakhana Legal
-      </button>
-    </div>
-</body>
-</html>
+        if (enquiryForm) {
+            enquiryForm.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent page refresh
+
+                // Ensure 'template_buyce9u' has the correct 't' at the beginning
+                emailjs.sendForm('service_oylm7v1', 'template_buyce9u', this)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        alert("Enquiry submitted successfully! Siyakhana Legal will get back to you soon.");
+                        enquiryForm.reset(); 
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        alert("Oops! Something went wrong while submitting your enquiry. Please check the console.");
+                    });
+            });
+        }
+    });
+</script>
